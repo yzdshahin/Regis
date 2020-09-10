@@ -1,5 +1,5 @@
 
-package Model.DAO;
+package Contorller.Util;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -11,10 +11,10 @@ import static org.apache.tomcat.util.security.ConcurrentMessageDigest.digest;
 
 public class Hash {
     
-    public static String  MakeHash(String pasString) throws NoSuchAlgorithmException {
+    public static byte[] MakeHash(String pasString) throws NoSuchAlgorithmException {
 	MessageDigest digest = MessageDigest.getInstance("SHA-256");
 	byte[] encodedhash = digest.digest(pasString.getBytes(StandardCharsets.UTF_8));
-        return bytesToHex(encodedhash);
+        return encodedhash ;
     }
 
     public static String bytesToHex(byte[] hash) {
