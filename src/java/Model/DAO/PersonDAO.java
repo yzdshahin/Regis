@@ -36,25 +36,38 @@ public class PersonDAO {
            
         return validation;
     }
-    
-//    public static boolean check(String n, byte [] p)throws NoSuchAlgorithmException{
-//        boolean vaild=false;
-//        try {
-//            ConnectionProvider connectioner =new ConnectionProvider();
-//            PreparedStatement   preparedStatement = connectioner.getConnection().prepareStatement("SELECT * from Employee where user=? and pass=?");
-//            preparedStatement.setString(1, "name");
-//            preparedStatement.setString(2,"password");
-//            
-//            ResultSet resultSet=preparedStatement.executeQuery();
-//   
-//            vaild=resultSet.next();
-//
-//        } catch (SQLException e) {
-//             System.out.println(SQLException(e));
-//        }
-//
-//        return vaild;
-//    }
+        
+           public static boolean LoginUser(String NameUser,String PassUser) throws SQLException {
+            boolean validation= false;
+            try{ ConnectionProvider connectioner2 =new ConnectionProvider();
+            PreparedStatement   preparedStatement = connectioner2.getConnection().prepareStatement("SELECT * from Employee where name=? and pass=?");
+            preparedStatement.setString(1, "name");
+            preparedStatement.setString(2, "password");
+            ResultSet resultSet3= preparedStatement.executeQuery();
+            validation=resultSet3.next();
+           }catch(SQLException e){
+               System.out.println("the user you entered is not registered");} 
+           
+        return validation;
+    }
+           
+                  public static boolean RegistoreNow(String NameUser,String PassUser,String FatherUser,String BirthUser,String GenderUser) throws SQLException {
+            boolean validation= false;
+            try{ ConnectionProvider connectioner2 =new ConnectionProvider();
+            PreparedStatement   preparedStatement = connectioner2.getConnection().prepareStatement("insert into table Employee where name=? and pass=? and father=? and birth=? and gender=?");
+            preparedStatement.setString(1, "name");
+            preparedStatement.setString(2, "password");
+            preparedStatement.setString(3, "father");
+            preparedStatement.setString(4, "birth");
+            preparedStatement.setString(5, "gender");
+
+            ResultSet resultSet3= preparedStatement.executeQuery();
+            validation=resultSet3.next();
+           }catch(SQLException e){
+               System.out.println("the user you entered is not registered");} 
+           
+        return validation;
+    }
 
     private static boolean SQLException(SQLException e) {
         throw new UnsupportedOperationException("Not supported yet."); 

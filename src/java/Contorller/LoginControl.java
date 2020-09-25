@@ -23,8 +23,14 @@ public class LoginControl extends HttpServlet {
 
         String name = request.getParameter("name");
         String password = request.getParameter("password");
+        String father = request.getParameter("father");
+        String birth = request.getParameter("birth");
+        String gender = request.getParameter("gender");
 
- 
+
+            PersonDAO.RegistoreNow(name, password,father,birth,gender);
+          
+            
         if (PersonDAO.validateUser(name)){
             if(Hash.MakeHash(password).equals(PersonDAO.validatePass(password))){
             System.out.println("you're welcome");
