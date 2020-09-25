@@ -8,5 +8,17 @@
         <session-timeout>
             30
         </session-timeout>
+        
+        <servlet>  
+<servlet-name>LoginControl</servlet-name>  
+<servlet-class>LoginControl</servlet-class>  
+        </servlet>  
+  
+<servlet-mapping>  
+<servlet-name>LoginControl</servlet-name>  
+<url-pattern>/LoginControl/Login/register</url-pattern>  
+</servlet-mapping>  
+  
+  
     </session-config>
 </web-app>
